@@ -29,7 +29,7 @@ app.post("/api/send", async (req, res) => {
             { email: "aabdulmukhsin@gmail.com" },
             { email: "hello@plenocarbon.xyz" },
           ],
-          subject: "Waitlist",
+          subject: "Pleno Waitlist",
         },
       ],
       content: [{ type: "text/plain", value: content }],
