@@ -1,12 +1,11 @@
-import * as dotenv from "dotenv";
-dotenv.config();
-import express from "express";
-import bodyParser from "body-parser";
-import cors from "cors";
-import axios from "axios";
-import morgan from "morgan";
-import mongoose from "mongoose";
-import { exec } from "child_process";
+require('dotenv').config();
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const axios = require("axios");
+const morgan = require("morgan");
+const mongoose = require("mongoose");
+const { exec } = require("child_process");
 
 const app = express();
 
