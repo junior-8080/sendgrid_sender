@@ -35,33 +35,33 @@ const potentialUserSchema = new mongoose.Schema({
 
 app.post("/api/send", async (req, res) => {
   try {
-    let content = "";
-    let payload = req.body;
-    content = `Name:${payload.name}\nEmail: ${payload.email}\nOrganisation: ${payload.company}\nField Of Work: ${payload.field}\nRole: ${payload.role}\nPhone: ${payload.phone}\nMobile: ${payload.mobile}\nMessage: ${payload.message}\n`;
-    const mailData = {
-      personalizations: [
-        {
-          to: [
-            { email: "hello@plenocarbon.xyz" },
-            { email: "aabdulmukhsin@gmail.com" },
-          ],
-          subject: "Pleno Waitlist",
-        },
-      ],
-      content: [{ type: "text/plain", value: content }],
-      from: { email: "hello@plenocarbon.xyz" },
-    };
-    const options = {
-      headers: {
-        Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
-      },
-    };
+    // let content = "";
+    // let payload = req.body;
+    // content = `Name:${payload.name}\nEmail: ${payload.email}\nOrganisation: ${payload.company}\nField Of Work: ${payload.field}\nRole: ${payload.role}\nPhone: ${payload.phone}\nMobile: ${payload.mobile}\nMessage: ${payload.message}\n`;
+    // const mailData = {
+    //   personalizations: [
+    //     {
+    //       to: [
+    //         { email: "hello@plenocarbon.xyz" },
+    //         { email: "aabdulmukhsin@gmail.com" },
+    //       ],
+    //       subject: "Pleno Waitlist",
+    //     },
+    //   ],
+    //   content: [{ type: "text/plain", value: content }],
+    //   from: { email: "hello@plenocarbon.xyz" },
+    // };
+    // const options = {
+    //   headers: {
+    //     Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
+    //   },
+    // };
 
-    await axios.post(
-      "https://api.sendgrid.com/v3/mail/send",
-      mailData,
-      options
-    );
+    // await axios.post(
+    //   "https://api.sendgrid.com/v3/mail/send",
+    //   mailData,
+    //   options
+    // );
 
     await saveToMongoDB(payload);
     return res.status(200).json({
