@@ -36,7 +36,7 @@ const potentialUserSchema = new mongoose.Schema({
 app.post("/api/send", async (req, res) => {
   try {
     // let content = "";
-    // let payload = req.body;
+    
     // content = `Name:${payload.name}\nEmail: ${payload.email}\nOrganisation: ${payload.company}\nField Of Work: ${payload.field}\nRole: ${payload.role}\nPhone: ${payload.phone}\nMobile: ${payload.mobile}\nMessage: ${payload.message}\n`;
     // const mailData = {
     //   personalizations: [
@@ -62,6 +62,8 @@ app.post("/api/send", async (req, res) => {
     //   mailData,
     //   options
     // );
+
+    let payload = req.body;
 
     await saveToMongoDB(payload);
     return res.status(200).json({
